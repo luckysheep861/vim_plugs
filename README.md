@@ -10,7 +10,7 @@ cd vim_plug_install
 bash vim_plug_install.sh
 # 配置.vimrc
 # 注意备份本地.vimrc配置
-mv .vimrc $HOME
+mv -i vimrc $HOME/.vimrc
 vim $HOME/.vimrc
 # 输入:PlugInstall安装vim插件
 ```
