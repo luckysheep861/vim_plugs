@@ -6,7 +6,14 @@ set cursorline
 set cursorcolumn
 set t_Co=256
 set invlist
+set ts=4
+set expandtab
+set autoindent
 syntax on
+
+" remember vim position
+set viminfo='10,\"100,:20,%,n~/.viminfo
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 " install vim plug
 call plug#begin('~/.vim/plugged')
@@ -38,6 +45,11 @@ let Tlist_Exit_OnlyWindow=1 "exit Tlist if close sourse file
 
 " set fold
 set fdm=indent
+" open cur fold
 map = zo
+" close cur fole
 map - zc
-
+" open all fold
+map + zR
+" close all fold
+map _ zM
