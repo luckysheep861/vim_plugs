@@ -6,14 +6,24 @@ set cursorline
 set cursorcolumn
 set t_Co=256
 set invlist
-set ts=4
+set tabstop=4
 set expandtab
 set autoindent
+set shiftwidth=4
 syntax on
 
-" remember vim position
-set viminfo='10,\"100,:20,%,n~/.viminfo
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+" remember cursor position
+" set viminfo='10,\"100,:20,%,n~/.viminfo
+function LocatePosition()
+    if line("'\"") > 0
+        if line("'\"") <= line("$")
+            exe "norm '\""
+        else
+            exe "norm $"
+        endif
+    endif
+endfunction
+au BufReadPost * :call LocatePosition()
 
 " install vim plug
 call plug#begin('~/.vim/plugged')
@@ -45,6 +55,7 @@ let Tlist_Exit_OnlyWindow=1 "exit Tlist if close sourse file
 
 " set fold
 set fdm=indent
+autocmd BufRead * normal +
 " open cur fold
 map = zo
 " close cur fole
@@ -53,3 +64,24 @@ map - zc
 map + zR
 " close all fold
 map _ zM
+
+" auto add file info when create new .sh and .py file
+function AddInfo()
+    call setline(1, "")
+    call append(1, "#====================================================")
+    call append(2, "# Author: HongxuanTang")
+    call append(3, "# Create Date: " . strftime("%Y-%m-%d"))
+    call append(4, "# Description: ")
+    call append(5, "#====================================================")
+    call append(6, "")
+    if &filetype=="python"
+        call append(7, "import sys")
+        call append(7, "import pdb")
+        call append(9, "import json")
+        call append(10,"")
+    else
+        call append(7, "")
+    endif
+    normal G
+endfunction
+autocmd BufNewFile *.sh,*.py :call AddInfo()
