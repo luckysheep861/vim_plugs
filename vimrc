@@ -12,6 +12,9 @@ set autoindent
 set shiftwidth=4
 syntax on
 
+" set for vim 8.2
+set backspace=indent,eol,start
+
 " remember cursor position
 " set viminfo='10,\"100,:20,%,n~/.viminfo
 function LocatePosition()
@@ -31,6 +34,7 @@ Plug 'crusoexia/vim-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'https://github.com/vim-scripts/taglist.vim.git'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " set monokai
