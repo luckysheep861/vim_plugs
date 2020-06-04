@@ -13,4 +13,6 @@ bash install_nodejs.sh
 
 bash install_vim.sh
 
-bash install_plugs.sh
+bash install_plug.sh
+
+cat vimrc >> ~/.vimrc
