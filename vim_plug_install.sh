@@ -1,8 +1,5 @@
 set -ex
 
-# install pyls and python-language-service
-pip install -r requirements.txt
-
 # vim plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
