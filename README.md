@@ -1,6 +1,6 @@
 # vim_plug_install
 vim配置迁移
-![picture](https://github.com/luckysheep861/vim_plug_install/blob/master/picture.png)
+![picture](https://github.com/luckysheep861/vim_plug_install/blob/master/pictures.png)
 ## 功能
 - 插件NERDTree,在vim左侧提供目录结构
 - 插件taglist, 在vim右侧提供代码结构
